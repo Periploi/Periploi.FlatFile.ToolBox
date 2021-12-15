@@ -1,12 +1,18 @@
 ﻿namespace Periploi.FlatFile.ToolBox.Positional;
 
 [Serializable]
-public abstract class PositionalFlatFile<T>
+public class PositionalFlatFile<T>
     where T : PositionalRecord, new()
 {
     protected T RootContainer;
 
-    public abstract void AsXml(StreamReader sr, XmlWriter xmlWriter);
+    public virtual void AsXml(StreamReader sr, XmlWriter xmlWriter)
+    {
+        xmlWriter.WriteStartDocument();
+
+        using var xml = new XmlWriterWrapper(xmlWriter);
+        Process(sr, xml);
+    }
 
     protected T Process(StreamReader sr, XmlWriterWrapper xml)
     {
