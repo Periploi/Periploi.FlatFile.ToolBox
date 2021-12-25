@@ -1,13 +1,14 @@
-﻿using Periploi.FlatFile.ToolBox.Positional;
+﻿namespace Periploi.FlatFile.ToolBox.Tests.Models;
 
-namespace Periploi.FlatFile.ToolBox.Tests.Models
+internal sealed class EmptyModelContainer : Record<FlatFileContext>
 {
-    internal class EmptyModelContainer : PositionalRecord
+    public override void AsXml(XmlRecord xml, FlatFileContext context)
     {
-        public EmptyModelContainer(string line, int lineNumber) : base(line, lineNumber)
-        {
-        }
+        throw new NotImplementedException();
+    }
 
-        public override PositionalRecordDefinition Definition { get; } = new PositionalRecordDefinition();
+    public override RecordDefinition<FlatFileContext> GetDefinition()
+    {
+        throw new NotImplementedException();
     }
 }

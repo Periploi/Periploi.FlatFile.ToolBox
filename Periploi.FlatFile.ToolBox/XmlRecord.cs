@@ -1,13 +1,11 @@
-﻿// ReSharper disable MemberCanBePrivate.Global
-
-namespace Periploi.FlatFile.ToolBox;
+﻿namespace Periploi.FlatFile.ToolBox;
 
 /// <summary>
 ///     Xml Helper
 /// </summary>
-public sealed class XmlWriterWrapper : IDisposable
+public sealed class XmlRecord : IDisposable
 {
-    public XmlWriterWrapper(XmlWriter xml)
+    public XmlRecord(XmlWriter xml)
     {
         Xml = xml;
     }
@@ -32,11 +30,11 @@ public sealed class XmlWriterWrapper : IDisposable
     }
 
     /// <summary>
-    ///     Add a node to the stack with possibles <see cref="Action&lt;XmlWriterWrapper&gt;" />.
+    ///     Add a node to the stack with possibles <see cref="Action&lt;XmlRecord&gt;" />.
     /// </summary>
     /// <param name="nodeName"></param>
     /// <param name="actions"></param>
-    public void OpenNode(string nodeName, params Action<XmlWriterWrapper>[] actions)
+    public void OpenNode(string nodeName, params Action<XmlRecord>[] actions)
     {
         Xml.WriteStartElement(nodeName);
         OpenNodesCounter++;
@@ -49,20 +47,20 @@ public sealed class XmlWriterWrapper : IDisposable
     ///     Open a new node context.
     /// </summary>
     /// <param name="nodeName"></param>
-    /// <returns>A new <see cref="XmlWriterWrapper" /></returns>
-    public XmlWriterWrapper OpenContext(string nodeName)
+    /// <returns>A new <see cref="XmlRecord" /></returns>
+    public XmlRecord OpenContext(string nodeName)
     {
-        var context = new XmlWriterWrapper(Xml);
+        var context = new XmlRecord(Xml);
         context.OpenNode(nodeName);
         return context;
     }
 
     /// <summary>
-    ///     Write node with possibles <see cref="Action&lt;XmlWriterWrapper&gt;" />.
+    ///     Write node with possibles <see cref="Action&lt;XmlRecord&gt;" />.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="actions"></param>
-    public void WriteNode(string name, params Action<XmlWriterWrapper>[] actions)
+    public void WriteNode(string name, params Action<XmlRecord>[] actions)
     {
         Xml.WriteStartElement(name);
 

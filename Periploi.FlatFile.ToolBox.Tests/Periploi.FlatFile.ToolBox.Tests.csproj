@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DiffEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c7a34512ecd69090, processorArchitecture=MSIL">
@@ -76,12 +78,24 @@
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fields\PositionalFieldMapTests.cs" />
+    <Compile Include="usings.cs" />
+    <Content Include="FlatFiles\FF_Type00_SimpleNesting3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FlatFiles\FF_Type00_SimpleNesting2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FlatFiles\FF_Type00_SimpleNesting1.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Models\EmptyModelContainer.cs" />
-    <Compile Include="Models\SampleModelContainer.cs" />
+    <Compile Include="Models\SampleModelFile.cs" />
     <Compile Include="Records\PositionalRecordDefinitionTests.cs" />
+    <Compile Include="FF\FlatFileSimpleNestingTests.cs" />
     <Compile Include="Records\PositionalRecordTests.cs" />
     <Compile Include="Fields\PositionalFieldTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
