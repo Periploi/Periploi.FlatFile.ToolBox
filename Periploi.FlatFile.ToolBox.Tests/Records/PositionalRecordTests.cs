@@ -16,5 +16,7 @@ public class PositionalRecordTests
         assert.LineNumber.ShouldBe(0);
         assert.LineLength.ShouldBe(0);
         assert.GetFieldValue(-1).ShouldBe(string.Empty);
+        Assert.ThrowsException<NotImplementedException>(() => assert.AsXml(null, null));
+        Assert.ThrowsException<NotImplementedException>(() => assert.GetDefinition());
     }
 }

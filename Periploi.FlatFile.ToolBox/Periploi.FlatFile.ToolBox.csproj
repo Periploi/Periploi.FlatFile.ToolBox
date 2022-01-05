@@ -5,6 +5,7 @@
     <ImplicitUsings>false</ImplicitUsings>
     <Nullable>disable</Nullable>
     <LangVersion>10</LangVersion>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net47' or '$(TargetFramework)' == 'netstandard2.0' ">
