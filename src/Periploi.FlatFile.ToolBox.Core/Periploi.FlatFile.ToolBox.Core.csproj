@@ -6,6 +6,13 @@
     <Nullable>disable</Nullable>
     <LangVersion>10</LangVersion>
     <AssemblyVersion>0.0.1.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageVersion>0.0.1-alpha</PackageVersion>
+    <Authors>Fred Jacobs</Authors>
+    <Copyright>Periploi</Copyright>
+    <PackageProjectUrl>https://github.com/Periploi/Periploi.FlatFile.ToolBox</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Periploi/Periploi.FlatFile.ToolBox/blob/main/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Periploi/Periploi.FlatFile.ToolBox</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net47' or '$(TargetFramework)' == 'netstandard2.0' ">
